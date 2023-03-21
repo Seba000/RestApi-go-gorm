@@ -12,8 +12,11 @@ import (
 
 
 func main() {
+
+	//base de datos
 	db.DBConnection()
 
+	//modelos de task y user
 	db.DB.AutoMigrate(models.Task{})
 	db.DB.AutoMigrate(models.User{})
 
@@ -23,6 +26,12 @@ func main() {
 
 	//se definen las rutas
 	r.HandleFunc("/", routes.HomeHandler)
+
+	r.HandleFunc("/users", routes.GetUsersHandler).Methods("GET")
+	r.HandleFunc("/users/{id}", routes.GetUserHandler).Methods("GET")
+	r.HandleFunc("/users", routes.PostUsersHandler).Methods("POST")
+	r.HandleFunc("/users", routes.DeleteUsersHandler).Methods("DELETE")
+
 
 
 
