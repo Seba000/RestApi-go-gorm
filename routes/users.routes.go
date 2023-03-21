@@ -26,6 +26,9 @@ func GetUserHandler(w http.ResponseWriter, r *http.Request){
 		w.Write([]byte("User not found :c"))
 		return
 	}
+	//Conexion entre el usuario y sus tareas con la propiedad association.
+	db.DB.Model(&user).Association("Tasks").Find(&user.Tasks)
+
 	json.NewEncoder(w).Encode(&user)
 }
 

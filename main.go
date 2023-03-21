@@ -27,11 +27,17 @@ func main() {
 	//se definen las rutas
 	r.HandleFunc("/", routes.HomeHandler)
 
-	r.HandleFunc("/users", routes.GetUsersHandler).Methods("GET")
-	r.HandleFunc("/users", routes.PostUsersHandler).Methods("POST")
-	r.HandleFunc("/users/{id}", routes.GetUserHandler).Methods("GET")
-	r.HandleFunc("/users/{id}", routes.DeleteUsersHandler).Methods("DELETE")
+		//User Routes
+		r.HandleFunc("/users", routes.GetUsersHandler).Methods("GET")
+		r.HandleFunc("/users", routes.PostUsersHandler).Methods("POST")
+		r.HandleFunc("/users/{id}", routes.GetUserHandler).Methods("GET")
+		r.HandleFunc("/users/{id}", routes.DeleteUsersHandler).Methods("DELETE")
 
+		//Task Routes
+		r.HandleFunc("/tasks", routes.GetTaskHandler).Methods("GET")
+		r.HandleFunc("/tasks", routes.CreateTaskHandler).Methods("POST")
+		r.HandleFunc("/tasks/{id}", routes.GetTaskHandler).Methods("GET")
+		r.HandleFunc("/tasks/{id}", routes.DeleteTasksHandler).Methods("DELETE")
 
 
 
