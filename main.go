@@ -4,8 +4,8 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-
 	"github.com/seba000/RestApi-go-gorm/db"
+	"github.com/seba000/RestApi-go-gorm/models"
 	"github.com/seba000/RestApi-go-gorm/routes"
 )
 
@@ -13,6 +13,10 @@ import (
 
 func main() {
 	db.DBConnection()
+
+	db.DB.AutoMigrate(models.Task{})
+	db.DB.AutoMigrate(models.User{})
+
 	//se asigna el new router de mux a la variable r
 	r := mux.NewRouter()
 
