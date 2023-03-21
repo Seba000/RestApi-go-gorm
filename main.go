@@ -5,13 +5,14 @@ import (
 
 	"github.com/gorilla/mux"
 
+	"github.com/seba000/RestApi-go-gorm/db"
 	"github.com/seba000/RestApi-go-gorm/routes"
 )
 
 
 
 func main() {
-	
+	db.DBConnection()
 	//se asigna el new router de mux a la variable r
 	r := mux.NewRouter()
 
@@ -24,3 +25,5 @@ func main() {
 	//se inicia e asigna elp puerto al server
 	http.ListenAndServe(":3000", r)
 }
+
+//go run .
