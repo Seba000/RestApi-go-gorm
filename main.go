@@ -28,9 +28,9 @@ func main() {
 	r.HandleFunc("/", routes.HomeHandler)
 
 	r.HandleFunc("/users", routes.GetUsersHandler).Methods("GET")
-	r.HandleFunc("/users/{id}", routes.GetUserHandler).Methods("GET")
 	r.HandleFunc("/users", routes.PostUsersHandler).Methods("POST")
-	r.HandleFunc("/users", routes.DeleteUsersHandler).Methods("DELETE")
+	r.HandleFunc("/users/{id}", routes.GetUserHandler).Methods("GET")
+	r.HandleFunc("/users/{id}", routes.DeleteUsersHandler).Methods("DELETE")
 
 
 
